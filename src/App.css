@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=BIZ+UDPMincho:wght@400;700&display=swap');
+body {
+  background-color: #fde2e4; /* ベビーピンクの背景 */
+  font-family: 'BIZ UDPMincho', serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Todoアプリ全体 */
+.todo-app {
+  background-color: #fff0f1; /* 白っぽいピンクの背景 */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* 見出し */
+h1 {
+  color: #ff99a1; /* 濃いピンクの見出し */
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* フォームの入力フィールド */
+input[type='text'] {
+  font-family: 'BIZ UDPMincho', serif;
+  padding: 10px;
+  border: 2px solid #ffc1c5;
+  border-radius: 5px;
+  width: 70%;
+  margin-right: 10px;
+  box-sizing: border-box;
+  font-size: 16px;
+  caret-color: #ff99a1;
+}
+input[type='text']:focus {
+  border-color: #ff99a1;
+  outline: none;
+}
+input[type='text']has:invalid {
+  border-color: #ab0a17;
+}
+
+/* ボタンのスタイル */
+button {
+  background-color: #ff99a1; /* 濃いピンクのボタン */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+button.delete-button {
+  background-color: #e13b49;
+  margin-left: 5px;
+}
+
+button:hover {
+  background-color: #ff6f78; /* ホバー時の色 */
+}
+
+/* Todoリストの項目 */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background-color: #ffe5e7; /* ライトピンクのリストアイテム */
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* 項目を縦に並べる */
+}
+li > div {
+  display: flex;
+  align-items: center;
+  width: 100%; /* ボタンとタスク名を横並びにする */
+  justify-content: space-between;
+}
+/* チェックボックス */
+input[type='checkbox'] {
+  -webkit-appearance: none; /* デフォルトの外観を無効にする */
+  appearance: none; /* デフォルトの外観を無効にする */
+  width: 20px; /* 幅を設定 */
+  height: 20px; /* 高さを設定 */
+  border: 2px solid #ff99a1; /* 枠の色 */
+  border-radius: 4px; /* 角を丸くする */
+  background-color: #fff; /* 背景色 */
+  cursor: pointer; /* カーソルをポインターにする */
+  position: relative; /* ポジションを相対にする */
+}
+
+/* チェックが入った状態のスタイル */
+input[type='checkbox']:checked::before {
+  content: '✔️'; /* 空のコンテンツ */
+  position: absolute; /* 絶対位置 */
+  color: white;
+  width: 100%; /* 幅を100%にする */
+  height: 100%; /* 高さを100%にする */
+  inset: 0;
+  text-align: center;
+  background-color: pink; /* 背景色 */
+  border-radius: 2px; /* 角を丸くする */
+}
+
+/* タスク名（完了したタスクは取り消し線） */
+span {
+  font-size: 16px;
+  color: #333;
+}
+
+span[style*='line-through'] {
+  color: #b0b0b0; /* 完了したタスクはグレーに */
+  display: flex;
+  justify-content: center;
+}
+.timestamp-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.timestamp {
+  font-size: 10px;
+  color: #ff99a1;
+  width: 100%;
+  text-align: right;
+  display: flex;
+  justify-content: flex-start;
+}
+.donetimestamp {
+  font-size: 10px;
+  color: #5db1fb;
+  width: 100%;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+}
