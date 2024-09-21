@@ -14,11 +14,15 @@ const TodoApp: React.FC = () => {
   useEffect(() => {
     const storedTodos = JSON.parse(localStorage.getItem('todos') || '[]');
     setTodos(storedTodos);
+    if (taskRef.current) {
+      taskRef.current.focus();
+    }
   }, []);
 
   // ローカルストレージにTodoを保存
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
+    console.log(todos);
   }, [todos]);
 
   // 現在の日時を取得する関数
